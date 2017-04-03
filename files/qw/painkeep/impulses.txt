@@ -1,0 +1,118 @@
+PainKeep Weapon Setup:
+
+Impulses:
+
+Impusle 1:
+
+  Toggles between these items in this order:
+  	Axe,
+    Gravity Well,
+    AutoSentry,
+    BearTrap,
+    Can Of Pork & Beans
+
+Impulse 2:
+
+  Toggles between the shotgun & the airfist.
+
+Impulse 8:
+
+  Toggles between the lightning & the chain lightning guns.
+
+Impulse 21:
+  Grapple Gun.
+
+Impulse 22:
+  Grapple Gun.
+
+Impulse 30:
+  AirFist.
+
+Impulse 31:
+  Grapple Gun.
+
+Impulse 32:
+  Chain Ligthning Gun.
+
+Impulse 33:
+  Gravity Well.
+
+Impulse 34:
+  Bear Trap.
+
+Impulse 35:
+  AutoSentry.
+
+Impulse 36:
+  Can Of Pork & Beans.
+
+Impulse 37:
+  Axe (why not?).
+
+Impulse 38:
+  Displays a 3 line inventory stats.  Check it out & see if you like it.
+
+Impulse 46:
+  Selects the best close combat weapon.
+
+Impulse 50:
+  Release the harpoon
+
+Impulse 69:
+  Return to the previous weapon
+
+Impulse 200:
+  Toggle Hub mode
+
+Impulse 201:
+  Toggle timelimit and fraglimit status bar
+
+Impulse 225:
+  Displays the status of PainKeep server settings
+
+Impulse 253:
+  Turn off/on the SFX (zombies, sparks, lightning, drips, splashing, and
+  extra sounds). Some won't take effect till the next level.
+
+Weapon Cycles:
+
+The forward & reverse weapon cycle goes in this order:
+
+	Inventory Item,
+  Grapple Gun,
+  Shotgun,
+  AirFist,
+  Super Shotgun,
+  Nail Gun,
+  Super Nail Gun,
+  Grenade Launcher,
+  Rocket Launcher,
+  Lightning Gun,
+  Chain Lightning Gun.
+
+
+The bestweapon order is:
+
+  Chain Lightning gun,
+  Lightning Gun,
+  Super Nailgun,
+  Super Shotgun,
+  Nailgun,
+  Shotgun,
+  AirFist,
+  Axe.
+
+
+The deathmatch weapon ranks are:
+
+  Chain Lightning gun,
+  Lightning Gun,
+  Rocket Launcher,
+  Super Nailgun,
+  Grenade Launcher,
+  Super Shotgun,
+  Nailgun,
+  AirFist,
+  Rest of the weapons & items are last equal.
+
+

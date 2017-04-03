@@ -1,0 +1,178 @@
+PainKeep 1.1 to 1.11 patch installation instructions
+http://www.planetquake.com/skins/painkeep
+
+This document includes:
+
+1. Running the 1.1 to 1.11 patch
+2. What's new in 1.11
+3. Map exclusion and play order control
+4. Manual installation of the 1.1 to 1.11 patch
+
+The full version of PainKeep 1.11 without the InstallShield setup should
+be available on http://www.planetquake.com/skins/painkeep by the time
+you read this document. If you prefer to use this patch, please read the
+documentation carefully. It has been extensively tested and works in all
+tested cases. 
+
+Unzip the contents of PK111UP.ZIP into the directory where you have
+PainKeep 1.1 installed. 
+
+*IMPORTANT*: The patch will not work unless you have PainKeep 1.1
+installed AND you extract the contents of PK111UP.ZIP into the directory
+where it is installed. If you experience any problems I highly suggest
+you delete your PainKeep directory, reinstall from the original 1.1
+files and then run the 1.1 to 1.11 patch. 
+
+Next, run the file PATCH.BAT in your PAINKEEP directory. This will add
+and update files in the PainKeep PAK0.PAK file, and then completely
+remove and clean up all unnecessary files upon completion. 
+
+This process can take a long time. Please be patient. If you experience
+any problems, please refer to the MANUAL INSTALLATION instructions
+further in this document. 
+
+
+What's New in 1.11
+------------------
+We knew of a couple bugs immediately after releasing 1.1, but we sat on
+all the incoming reports until we had enough to make a final build of
+PainKeep. There have been relatively few issues and most painkeep
+servers are running well. Unless we have overlooked something huge, this
+will be the final release of PainKeep. We are satisfied that it is at
+least the quality of any of the commercial Quake offerings with this
+release. 
+
+- Solaris Quake crash upon loading (BSP alignment errors)
+- Rare Linux crash
+- Several small bugs squashed
+- Map PK16 problems corrected
+- MAP PK17 full vis'd for transparent lava
+- Recompiled and tested with QW 2.0 source
+- A few performance improvements
+
+- not our fix, but glQuakeWorld performance in levels with large open
+areas will be improvedwith the 2.0 release of the glQW client (despite
+some comments to the contrary, all levels in PainKeep have low r_speeds
+and were thoroughly tested before release to ensure they were playable
+with 250ms ping times with QW. Because we were the first to release with
+re-vis'd levels for transparency effects, many people experienced the
+glQW slowdowns with larger areas with PainKeep first and mistakenly
+attributed the problem to PK) 
+
+- A quick note about Entity Number >= 512 errors. This is caused by
+exceeding the maximum number of entities allowed by Quake. If you get a
+net game going and have 16 guys all using the grappling gun and firing
+the pulse nailguns like crazy it can crash the server. PainKeep does use
+more entities than regular Quake to add its weapons and effects. There
+is nothing we can do about this issue. It isn't a real common problem,
+but the surest way to prevent it is to set maxclients to 8 or so.
+
+- Finally, not every PainKeep map (or any map for that matter), plays
+well for every player or server. We have added a feature to the PainKeep
+server that allows admins to select both what levels are played and in
+what order. So slower servers can select all the smaller levels, or
+admins that get a lot of gripes about a specific level can turn them off
+selectively without having to recompile.
+
+MAP exclusion and play order control
+------------------------------------
+non-QuakeWorld Quake:
+
+To enable custom maps add 512 to the "temp1" variable.
+
+When the map needs to change it executes a "pknextmap" command on the
+console. To control the next map played you need to setup "alias"
+commands for "pknextmap". 
+
+
+For example:
+
+	temp1 512
+	alias pkmap1 "alias pknextmap "";alias pknextmap pkmap2;changelevel pk4"
+	alias pkmap2 "alias pknextmap "";alias pknextmap pkmap3;changelevel pk10"
+	alias pkmap3 "alias pknextmap "";alias pknextmap pkmap1;changelevel painkeep"
+	alias pknextmap pkmap1
+	start painkeep
+
+
+QuakeWorld:
+
+Although we had this fully implemented and tested, Zoid beat us to it
+and the latest version of QW now has this support built in.  The QW implementation
+is very elegant and works well.
+
+The only unique point with PainKeep is that if the votehub is enabled,
+level rotation set with localinfo will be ignored. Here is a snippet of
+text from the 2.0 release about how to setup level rotation. It works
+exactly the same with PainKeep.
+
+Map rotation using localinfo, syntax is localinfo [frommap] [tomap]. An example:
+localinfo e1m2 dm2
+localinfo dm2 dm4
+localinfo dm4 dm6
+localinfo dm6 e1m2
+would loop e1m2, dm2, dm4, dm6. If the last map does not point to the first the 
+map switching continues as normal.
+
+
+Manual Installation of PainKeep 1.1 to 1.11 patch
+-------------------------------------------------
+Unpack the PAK0.PAK file that is located in your PainKeep 1.1 directory.
+For purposes of this document, I will use and refer to XPAK which is
+freely available from: 
+
+ftp://ftp.cdrom.com/pub/idgames2/utils/bsp_pak_tools/xpak041.zip
+
+
+1. Copy the contents of PK111UP.ZIP into the directory where painkeep is installed. 
+2. Unpak PAK0.PAK in the painkeep dir. Now rename PAK0.PAK to
+   PAK0.OLD (just in case)
+3. Extract the contents of DATA.EXE using the -s, -d and -o switches.  This will 
+  overwrite some older files.  This file is also encrypted to prevent stupid users
+  from running it incorrectly.  The password is "pk111" without the quotes.
+
+	note: if you are running on a non-x86 platform, you can unzip the contents 
+	of this file exactly the same way as any .zip file.   i.e. unzip -d -o -spk111 data.exe
+
+4. In your painkeep dir, run the executable BSPALIGN against all the files in your map dir.
+	i.e.  BSPALIGN \maps\painkeep.bsp
+
+	note: if you are running on a non-x86 platform, the source for BSPALIGN has been
+	included.  Just compile BSPALIGN.C
+	*VERY IMPORTANT* make  sure that the instructions include undefining "INTEL" at the top of
+        the bspalign source when compiling on sun (actually, any reversed  byte order machines (or 
+        is Intel the one that's reversed?  <g>)).  otherwise your positions and sizes 
+        will not be byteswapped, and bad things will happen.
+
+5. Optional: you can now re-PAK everything and you are done.  If you choose not to do this, everything
+	will still work the same.  If you do PAK everything up, you can delete all the sub directories. 
+
+	note: distributed versions of PainKeep PAK0.PAK files only contain the files listed below.  All
+	other files are stored outside the PAK for easy updating:
+	
+	<DIR>GFX
+	<DIR>MAPS
+	<DIR>PROGS
+	<DIR>SOUND
+	DEFAULT .CFG
+	GFX     .WAD
+	PKDEMO1 .DEM
+	PKDEMO2 .DEM
+	PKDEMO3 .DEM
+	PKDEMO4 .DEM
+	PKDEMO5 .DEM
+	PKDEMO6 .DEM
+	PKDEMO7 .DEM
+	PKDEMO8 .DEM
+	QUAKE   .RC
+
+
+
+Credits:
+XPAK source used by permission.
+# XPak v0.4.1; 96/07/30. (c) Tom Wheeley; <splitbung>, tomw@tsys.demon.co.uk; 
+A couple bug fixes by Ken Alverson.
+
+BSPALIGN
+written by Ken Alverson
+

@@ -1,0 +1,80 @@
+PainKeep QuakeWorld setup
+-------------------------
+
+This document is intended for those who wish to run PainKeep on their QuakeWorld
+servers. If you are just installing to play as a client, make a directory beneath 
+your Quake directory called PainKeep (it MUST be called PainKeep on both the
+client AND the server).  Start the QuakeWorld client as you normally 
+would and when you log into a PainKeep QuakeWorld server, the server will transmit 
+the gamedir and play will begin.  (even easier than regular Quake...)
+
+
+Server info:
+
+1.  You must have installed PainKeep 1.1 to run PainKeep QuakeWorld.  If 
+	you have not installed PainKeep, go download the latest version
+	from http://www.planetquake.com/skins/painkeep/
+
+2.  Change to the directory where you installed PainKeep 1.1 and unzip the
+	contents of this ZIP file into that directory.
+
+3. Load the autoexec.cfg file for regular Quake, or the server.cfg for
+    QuakeWorld in the PainKeep directory into your favorite text
+    editor.  The default one looks something like this:
+
+        deathmatch 1
+        hostname "PainKeep 1.1"
+        fraglimit 30
+        noexit 1
+	temp 384	
+
+    Detailed description follows:
+
+        hostname "PainKeep"
+            This is the hostname of your Quake server that people see when
+            they query it.  I recommend you use something that identifies it
+            uniquely as your server.  It is best to leave PK or PainKeep in 
+            the title so people know your server is running PainKeep. (this also
+            makes it easier for those with custom QSpy tabs to find you)
+
+        timelimit 30
+            If no one gets to the fraglimit in 35 minutes, change levels
+            anyway.
+
+        fraglimit 30
+            Change levels when someone gets to 30 frags.
+
+        noexit 1
+            Don't allow exiting from the level
+
+
+	temp1 387  (for QuakeWorld servers use: 'serverinfo options' and not 'temp1')
+
+	The server setup for our configuration variables is all run from the "temp1" variable.
+
+	It sets 4 values:
+	1.	Hub level time-out.
+			The hub level time-out now has a maximum time setting of 63.
+	2.	SFX disabled/enabled.
+			0 = enabled
+			64 = disabled
+	3.	Duty checking disabled/enabled.
+			0 = disabled
+			128 = enabled
+	4.	Default status display on/off for connecting players. 
+		(the one that displays fraglimit & timelimit, after the player connects he can 
+		personally turn it off/on him/herself)
+			0 = disabled
+			256 = enabled
+
+	
+	Now to set the temp1 you just add up all the options.
+	EG. if you wanted a 3 min hub time-out with sfx enabled, duty checking on,
+	& default status on you would
+	temp1 = 3 + 0 + 128 + 256
+	temp1 = 387
+	(or "serverinfo options = 387" for QuakeWorld servers)
+
+4. Run the server.  
+
+	qwsv +gamedir painkeep

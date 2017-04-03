@@ -1,0 +1,142 @@
+---------------------------------------------------------------------
+ PainKeep 1.1 Frequently Asked Questions.               revision 003
+
+ PainKeep - http://www.planetquake.com/skins/painkeep/
+ Team Evolve - http://www.deltix.com/evolve/
+---------------------------------------------------------------------
+
+Q: Why is PainKeep free; it's a professional product that I would
+   have paid money for.
+A: Because it was always promised as free.
+
+Q: I can't wait to try out the new weapons and maps but I can't find
+   any PainKeep servers on the 'net.
+A: Grab yourself a copy of QSpy - http://www.quakespy.com/ - and grab
+   yourself a copy of the custom server configuration tab for
+   PainKeep at - http://www.deltix.com/evolve/files/PainKeep.qst
+
+Q: glQW PainKeep seems slow on some of the levels with large open areas?
+
+A: The levels with large open areas that slow down in
+   glQuakeWorld will be improve greatly with the next release of the glQW
+   client (as of this writing the latest released version is 1.64). We
+   talked with Zoid and Morbid at QuakeCon and their newest improvements
+   should make all the levels play in glQuake as well as they do in regular
+   DOS/WIN Quake. (despite some comments to the contrary, all levels in
+   PainKeep have low r_speeds and were thoroughly tested before release to
+   ensure they were playable with 250ms ping times with QW. Because we were
+   the first to release with re-vis'd levels, many people experienced the
+   glQW slowdowns with larger areas with PainKeep first and mistakenly 
+ attributed the problem to PK)
+
+Q: We were playing a raging net game with lots of players and got a server crash.
+A: A quick note about Entity Number >= 512 errors. This is caused by
+   exceeding the maximum number of entities allowed by Quake. If you get a
+   net game going and have 16 guys all using the grappling gun and firing
+   the pulse nailguns like crazy it can crash the server. PainKeep does use
+   more entities than regular Quake to add the weapons and effects. There
+   is nothing we can do about this issue. It isn't a real common problem,
+   but the surest way to prevent it is to set maxclients to 8 or so.
+
+Q: Transparent water doesn't seem to work!?! Or The water isn't transparent?
+A: Pull down the console and type "R_WATERALPHA 0.4" without the quotes.
+   You can add this to your AUTOEXEC.CFG file and it will always be enabled.
+   Use "R_SHADOWS 1" to enable shadows.
+
+Q: GLQuake transparent water support isn't fair for players that are
+   not running glQuake as they cannot see through water.
+A: Tough.  We decided that a much larger audience wanted to play with
+   transparent water and there is no way to support disabling this effect
+   without removing it altogether. (there is nothing like seeing some guy
+   trucking along under water and sending a rocket down after him!!)
+
+Q: I connected to a PainKeep server but Quake was stuck at the
+   console. I could talk and recieve messages but not play.
+A: You need to specify to use PainKeep on the command line -
+   (win)quake -game painkeep.  If you are using QuakeWorld, make
+   sure the directory where you keep painkeep is the same as on
+   the server you wish to play.  (this is usually just \painkeep)
+
+Q: I have no internet and no LAN and no modem and no friends. Is
+   there a "bot" for PainKeep?
+A: Not yet. We are playing around with that idea but don't expect
+   anything too soon 'cause we are working on other things...
+
+Q: I don't like/understand the votehub mode.  How do I turn it off?
+A: Change the map on the server to any map except START.BSP.  Or at the
+   server you can type PK_HUB (impulse 200) to toggle hub support on/off.
+   If you are running a QW server, in server.cfg just set the map value
+   to any map other than START.BSP.  Doing any of the above will make
+   maps begin and end like regular Quake.
+
+Q: How does the Harpoon Gun work?
+A: This all depends on what it hits.
+
+Q: If it the harpoon hits a object (eg. health, other player, ammo) what
+   happens?
+A: If it hits objects the harpoon gun returns dragging the object back.
+   Because the "bounding box" for objects like "health" & "ammo" are very
+   small (smaller than the object displays) it can be hard to hit.
+
+Q: If it hits a wall what happens?
+A: This depends on if you have the "fire" button held down.  If the fire
+   button is held down then the harpoon returns to you.   If it doesn't then
+   it sticks in a wall.
+
+Q: The harpoon it suck in the wall, now what can I do?
+A: Pressing fire again will drag you to the harpoon.  As soon as you reach
+   the harpoon it is let go, this was to reduce camping :)
+
+Q: Can we "release" the harpoon when being dragged to it, or when dragging
+   objects to me?
+A: Yes. Pressing fire while it is being "something" is being dragged will
+   "release" the harpoon.
+
+Q: I'm firing at a wall but it doesn't stick!!!!
+A: There is a maximum length the harpoon rope has (1500 quake units).  When
+   it reaches this length it always returns to you.
+
+Q: Is there a way to release the harpoon when it is stuck in a wall?
+A: Yes, see IMPULSES.TXT
+
+Q: I don't like the default key for XXX, can I change it?
+A: All weapons have unique impulse values that can be defined as any key.
+
+Q: I have made the coolest deathmatch map in the history of mankind.
+   How do I PainKeep-ize it?
+A: Get the map authors entity guide at -
+   http://www.planetquake.com/skins/painkeep/element.zip
+
+Q: Are you going to keep adding stuff to PainKeep and release a new
+   version every week until you run out of numerals and letters to
+   use?
+A: No.  1.1 is hopefully the last release.  We've done all we originally intended
+   and then some.  We now feel it is equal in gameplay and quality to
+   the other "mission packs" out there.   Time to move on.
+
+Q: I really like (blah blah) patch soo much, can you put it in the
+   next version of PainKeep?
+A: No. But the source code for PainKeep is publicly avaliable, and
+   you, or somebody smarter, can integrate the (blah blah) patch.
+
+Q: Why are PROGS.DAT and QWPROGS.DAT not in the PAK file?
+A: This allows us to update PK code by just posting a 200K file and not another
+   13 meg monster.
+
+Q: How can I make sure I know when new stuff is available?
+A: Subscribe to our mailing list at -
+   http://www.deltix.com/evolve/input/maillist.html - or visit our
+   news page every other day at - http://www.deltix.com/evolve/news/
+
+Q: HEY! I found a bug with PainKeep!
+A: Tell us. We need you to tell us the command that caused it, a
+   description of what you were doing at the time, what map you were
+   on, and a screenshot if possible (press F12 to take a screenshot -
+   this is especially important if it crashed and just left you with
+   the console)
+
+Q: I was running a server and it crashed, damn you.
+A: See above.
+
+
+---------------------------------------------------------------------
