@@ -2,6 +2,7 @@ server:
   image: zobees/painkeep
   environment:
     PORT: 27500
+    QW_RCON_PASSWORD: "test"
   ports:
     - "27500:27500"
     - "27500:27500/udp"
